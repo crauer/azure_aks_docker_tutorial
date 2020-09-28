@@ -1,0 +1,14 @@
+az login
+
+# Create a resource group
+az group create --name aks-docker-tutoral --location centralus
+
+# Create a container registry
+az acr create --resource-group aks-docker-tutoral --name AksDockerTutorialRegistry --sku Basic
+
+# Create a Kubernetes cluster
+az aks create --resource-group aks-docker-tutoral --name AksDockerTutorial --node-count 1 --enable-addons monitoring --generate-ssh-keys
+
+
+# Connect to kubectl
+az aks get-credentials --resource-group aks-docker-tutoral --name AksDockerTutorial
