@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: crauerazureaksdockertutorial 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: crauerazureaksdockertutorial
+  template:
+    metadata:
+      labels:
+        app: crauerazureaksdockertutorial 
+    spec:
+      containers:
+        - name: crauerazureaksdockertutorial 
+          image: aksdockertutorialregistry.azurecr.io/crauerazureaksdockertutorial
+          ports:
+          - containerPort: 80
